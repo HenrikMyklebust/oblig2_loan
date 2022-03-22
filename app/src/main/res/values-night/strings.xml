@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loan_type">Loan type</string>
+    <string name="linear_mortgage">Linear mortage</string>
+    <string name="settings">Settings</string>
+    <string name="settings_header">Result collums</string>
+    <string name="calculate">Calculate</string>
+    <string name="settings_deduction">Deduction</string>
+    <string name="settings_interest">Interest</string>
+    <string name="settings_term">Term amount</string>
+    <string name="year">Year</string>
+</resources>

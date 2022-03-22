@@ -1,0 +1,28 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/settings_header">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cbTerm"
+            android:title="@string/settings_term" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cbInterest"
+            android:title="@string/settings_interest" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cbDeduction"
+            android:title="@string/settings_deduction" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cbRemaining"
+            android:title="@string/settings_remaining" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

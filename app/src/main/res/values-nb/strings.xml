@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">oblig2_loans</string>
+    <string name="loan_type">Type lån</string>
+    <string name="linear_mortgage">Serielån</string>
+    <string name="fixed_rate_mortgage">Annuitetslån</string>
+    <string name="settings">Instillinger</string>
+    <string name="settings_header">Velg colonner som skal vises i resultatet</string>
+    <string name="loan_amount">Lån (Kr)</string>
+    <string name="interest_rate">Rente (%)</string>
+    <string name="down_payment_time_years">Nedbetalingstid (År)</string>
+    <string name="calculate">Beregn</string>
+    <string name="settings_remaining">Restgjeld</string>
+    <string name="settings_deduction">Avdrag</string>
+    <string name="settings_interest">Renter</string>
+    <string name="settings_term">Terminbeløp</string>
+    <string name="year">År</string>
+</resources>

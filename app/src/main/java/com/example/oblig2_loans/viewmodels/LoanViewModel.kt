@@ -16,9 +16,9 @@ class LoanViewModel : ViewModel() {
     val length = MutableLiveData("")
 
     fun calcLoan(): List<Result> {
-        if (verifyInput())
-            return loan.calcResult(amount.value!!, interest.value!!, length.value!!,
-                typeFixed.value!!, typeLinear.value!!)
+        if (verifyInput()){
+            return loan.calcResult(amount.value!!, interest.value!!, length.value!!, typeLinear.value!!)
+            }
         else return emptyList()
     }
 

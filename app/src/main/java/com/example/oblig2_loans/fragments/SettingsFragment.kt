@@ -13,11 +13,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onResume() {
         super.onResume()
-        (activity as AppCompatActivity?)!!.getSupportActionBar()!!.hide()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
     }
 
     override fun onPause() {
         super.onPause()
-        (activity as AppCompatActivity?)!!.getSupportActionBar()!!.show()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }

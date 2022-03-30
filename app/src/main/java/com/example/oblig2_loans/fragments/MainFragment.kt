@@ -2,11 +2,11 @@ package com.example.oblig2_loans.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -19,8 +19,10 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private lateinit var binding: MainFragmentBinding
     lateinit var viewModel: LoanViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
         viewModel = ViewModelProvider(this).get(LoanViewModel::class.java)
@@ -32,9 +34,9 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             val result = viewModel.calcLoan()
             if (result.isEmpty()) {
                 Toast.makeText(context, R.string.toastCheck, Toast.LENGTH_SHORT).show()
-            }
-            else {
-                val action = MainFragmentDirections.actionMainFragmentToResultFragment(result.toTypedArray())
+            } else {
+                val action =
+                    MainFragmentDirections.actionMainFragmentToResultFragment(result.toTypedArray())
                 Navigation.findNavController(binding.root).navigate(action)
             }
         }

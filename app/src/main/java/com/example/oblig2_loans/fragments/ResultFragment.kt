@@ -2,31 +2,29 @@ package com.example.oblig2_loans.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oblig2_loans.R
 import com.example.oblig2_loans.databinding.FragmentResultBinding
-import com.example.oblig2_loans.result.ResultAdapter
-import com.example.oblig2_loans.viewmodels.LoanViewModel
 import com.example.oblig2_loans.result.Result
+import com.example.oblig2_loans.result.ResultAdapter
 
 
 class ResultFragment : Fragment(R.layout.fragment_result) {
 
-    private lateinit var viewModel: LoanViewModel
-    private lateinit var binding : FragmentResultBinding
+    private lateinit var binding: FragmentResultBinding
     val args: ResultFragmentArgs by navArgs()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                                  savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_result, container, false)
         return binding.root
     }
@@ -35,7 +33,7 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         super.onViewCreated(view, savedInstanceState)
 
         val resultList = mutableListOf<Result>()
-        for (i in args.result){
+        for (i in args.result) {
             resultList.add(i)
         }
         val preferenceManager = PreferenceManager.getDefaultSharedPreferences(view.context)

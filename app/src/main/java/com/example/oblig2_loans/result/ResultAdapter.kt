@@ -12,9 +12,14 @@ class ResultAdapter(
 ) : RecyclerView.Adapter<ResultAdapter.ResultViewHolder>() {
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
-        return ResultViewHolder(ResultLineBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ResultViewHolder(
+            ResultLineBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
@@ -25,7 +30,8 @@ class ResultAdapter(
         return results.size
     }
 
-    class ResultViewHolder(private val binding : ResultLineBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ResultViewHolder(private val binding: ResultLineBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(result: Result) {
             val preferenceManager = PreferenceManager.getDefaultSharedPreferences(itemView.context)

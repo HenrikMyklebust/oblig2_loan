@@ -1,45 +1,32 @@
 package com.example.oblig2_loans.viewmodels
 
-
-import androidx.databinding.InverseBindingMethods
-import androidx.databinding.InverseMethod
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation
 import com.example.oblig2_loans.Loan
+import com.example.oblig2_loans.result.Result
 
-open class LoanViewModel : ViewModel() {
+class LoanViewModel : ViewModel() {
 
     val loan: Loan = Loan()
+    val typeLinear = MutableLiveData(true)
+    val typeFixed = MutableLiveData(false)
+    val amount = MutableLiveData("")
+    val interest = MutableLiveData("")
+    val length = MutableLiveData("")
 
-    // Radio button for linear loan
-    private val _typeLinear = MutableLiveData(true)
-    val typeLinear: LiveData<Boolean>
-        get() = _typeLinear
-
-    // Radio button for fixed-rate loan
-    private val _typeFixed = MutableLiveData(false)
-    val typeFixed: LiveData<Boolean>
-        get() = _typeFixed
-
-    // Loan amount field
-    private val _amount = MutableLiveData("")
-    val amount: LiveData<String>
-        get() = _amount
-
-    // Interest rate field
-    private val _interest = MutableLiveData("")
-    val interest: LiveData<String>
-        get() = _interest
-
-    // DownPayment time length
-    private val _length = MutableLiveData("")
-    val length: LiveData<String>
-        get() = _length
-
-
-    fun calculate() {
-        println("HELLLO DIS IS DOGE")
+    fun calcLoan(): List<Result> {
+        if (verifyInput())
+            return loan.calcResult(amount.value!!, interest.value!!, length.value!!,
+                typeFixed.value!!, typeLinear.value!!)
+        else return emptyList()
     }
 
+    private fun verifyInput(): Boolean{
+        if (amount.value.equals("0") || amount.value.equals("") ||
+            interest.value.equals("0") || interest.value.equals("") ||
+            length.value.equals("0") || length.value.equals(""))
+            return false
+        return true
+    }
 }

@@ -22,7 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/loan_type"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,20 +39,20 @@
             <RadioButton
                 android:id="@+id/rbLinearMortgage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight="1"
                 android:checked="@={viewModel.typeLinear}"
                 android:text="@string/linear_mortgage"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <RadioButton
                 android:id="@+id/rbFixedRateMortgage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight="1"
                 android:checked="@={viewModel.typeFixed}"
                 android:text="@string/fixed_rate_mortgage"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </RadioGroup>
 
@@ -61,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/loan_amount"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
@@ -73,8 +73,8 @@
             android:ems="10"
             android:hint="100000"
             android:inputType="number"
-            android:textSize="25sp"
             android:text="@={viewModel.amount}"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLoanAmount" />
@@ -84,7 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/interest_rate"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etLoanAmount" />
@@ -96,8 +96,8 @@
             android:ems="10"
             android:hint="4"
             android:inputType="numberDecimal"
-            android:textSize="25sp"
             android:text="@={viewModel.interest}"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvInterest" />
@@ -109,8 +109,8 @@
             android:ems="10"
             android:hint="10"
             android:inputType="number"
-            android:textSize="25sp"
             android:text="@={viewModel.length}"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDownPaymentTime" />
@@ -120,7 +120,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/down_payment_time_years"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etInterest" />

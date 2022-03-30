@@ -19,7 +19,6 @@ class ResultAdapter(
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         holder.bind(results[position])
-
     }
 
     override fun getItemCount(): Int {

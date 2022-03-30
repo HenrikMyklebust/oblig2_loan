@@ -6,43 +6,70 @@ import kotlin.math.roundToInt
 class Loan {
 
 
-    fun calcLinear(amount: Int, interest: Double, length: Int, typeFixed: Boolean, typeLinear: Boolean): List<Result> {
-        var results = mutableListOf<Result>()
-        var deduction = calcDeduction(amount, length, typeFixed, typeLinear)
+
+    fun calcResult(amount: String, interest: String, length: String, typeFixed: Boolean, typeLinear: Boolean): List<Result> {
+        val doubleAmount = amount.toDouble()
+        val doubleInterest = interest.toDouble()
+        val intLength = length.toInt()
+        if (typeLinear) {
+            return calcLinear(doubleAmount, doubleInterest, intLength, typeFixed, typeLinear)
+        }
+        else
+            return calcFixed(doubleAmount, doubleInterest, intLength, typeFixed, typeLinear)
+    }
+
+
+    private fun calcLinear(amount: Double, interest: Double, length: Int, typeFixed: Boolean, typeLinear: Boolean): List<Result> {
+        val results = mutableListOf<Result>()
+        val deduction = calcDeduction(amount, length, typeFixed, typeLinear)
         var payedInterest = calcInterest(amount, interest, typeFixed, typeLinear)
         var term = calcTerm(deduction, payedInterest)
         var remaining = calcRemaining(amount,deduction)
         results.add(Result(1,term,payedInterest,deduction,remaining))
+
         for (i in 2.rangeTo(length)){
-            payedInterest = calcInterest(term, interest, typeFixed, typeLinear)
+            payedInterest = calcInterest(remaining, interest, typeFixed, typeLinear)
             term = calcTerm(deduction, payedInterest)
-            remaining = calcRemaining(term,deduction)
+            remaining = calcRemaining(remaining,deduction)
             results.add(Result(i,term,payedInterest,deduction,remaining))
+        }
+        for (i in results){
+            i.term = round(i.term)
+            i.Interest = round(i.Interest)
+            i.Deduction = round(i.Deduction)
+            i.Remaining = round(i.Remaining)
         }
         return results
     }
-    fun calcFixed(): List<Result> {
-        // TODO()
+    private fun calcFixed(amount: Double, interest: Double, length: Int, typeFixed: Boolean, typeLinear: Boolean): List<Result> {
+        //var deduction = calcDeduction()
+        //var payedInterest = calcInterest()
+        //val term = calcTerm()
         val results = mutableListOf<Result>()
         return results
     }
 
-    fun calcDeduction(amount: Int, length: Int, typeFixed: Boolean, typeLinear: Boolean): Int{
+    private fun calcDeduction(amount: Double, length: Int, typeFixed: Boolean, typeLinear: Boolean): Double{
         if (typeLinear)
             return amount / length
         else if (typeFixed)
-            return 1
-        return 0
+            return 1.0
+        return 0.0
     }
 
-    fun calcInterest(amount: Int, interest: Double, typeFixed: Boolean, typeLinear: Boolean): Int{
+    private fun calcInterest(amount: Double, interest: Double, typeFixed: Boolean, typeLinear: Boolean): Double{
         if (typeLinear)
-            return (amount*(interest/100)).roundToInt()
+            return (amount*(interest/100))
         else if (typeFixed)
-            return 1
-        return 0
+            return 1.0
+        return 0.0
     }
-    fun calcTerm(deduction: Int, interest: Int): Int {return deduction + interest}
-    fun calcRemaining(amount: Int, deduction: Int): Int {return amount - deduction}
+    private fun calcTerm(deduction: Double, interest: Double): Double {return deduction + interest}
+    private fun calcRemaining(amount: Double, deduction: Double): Double {return amount - deduction}
+
+    private fun round(double: Double): Double{
+        val doubleThreeDecimal: Double = Math.round(double * 1000.0) / 1000.0
+        return Math.round(doubleThreeDecimal * 100.0) / 100.0
+    }
 
 }

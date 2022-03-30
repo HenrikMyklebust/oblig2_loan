@@ -15,4 +15,5 @@
     <string name="settings_interest">Renter</string>
     <string name="settings_term">Terminbeløp</string>
     <string name="year">År</string>
+    <string name="toastCheck">Ingen av feltene kan være tomme</string>
 </resources>
